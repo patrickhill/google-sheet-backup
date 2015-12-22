@@ -1,11 +1,16 @@
+function addLeadingZero(dateFunction) {
+  var dateWithLeadingZero = ('0' + (dateFunction) ).slice(-2);
+  return dateWithLeadingZero;
+}
+
 function createTimestamp() {
   var date = new Date();
-  var y = date.getYear();
-  var m = date.getMonth();
-  var d = date.getDay();
-  var hrs = date.getHours();
-  var min = date.getMinutes();
-  var sec = date.getSeconds();
+  var y = date.getFullYear();
+  var m = addLeadingZero( date.getMonth() + 1 );
+  var d = addLeadingZero( date.getDate() );
+  var hrs = addLeadingZero( date.getHours() );
+  var min = addLeadingZero( date.getMinutes() );
+  var sec = addLeadingZero( date.getSeconds() );
   var timestamp = y + "-" + m + "-" + d + " " + hrs + "." + min + "." + sec;
   
   return timestamp;
